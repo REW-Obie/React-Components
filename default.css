@@ -1,0 +1,2237 @@
+/*  #######
+    globals
+    #######*/
+html {
+  font: normal 100%/1.5 "Lato", sans-serif;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  background: #fff;
+  color: #222;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+img,
+embed,
+object,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+.main {
+  margin-top: 5em;
+}
+
+.viewContainer {
+  margin-bottom: 3.75rem;
+}
+
+.input {
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fff;
+  border: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/*
+you may want to avoid using @extend for these placeholder styles because the selectors can't be comma seperated. see :
+http://stackoverflow.com/questions/10181729/should-i-use-single-or-double-colon-notation-for-pseudo-elements#answer-10181948
+**/
+input::-webkit-input-placeholder {
+  /*
+  set opacity on placeholder text to manipulate its visibility when in focus
+  **/
+  opacity: 1;
+  font-size: 1rem;
+  text-overflow: ellipsis;
+  -webkit-transition: opacity 0.3s ease-in-out 0s;
+  transition: opacity 0.3s ease-in-out 0s;
+}
+
+input::-moz-placeholder {
+  opacity: 1;
+  font-size: 1rem;
+  text-overflow: ellipsis;
+  -webkit-transition: opacity 0.3s ease-in-out 0s;
+  transition: opacity 0.3s ease-in-out 0s;
+}
+
+input:-moz-placeholder {
+  opacity: 1;
+  font-size: 1rem;
+  text-overflow: ellipsis;
+  -webkit-transition: opacity 0.3s ease-in-out 0s;
+  transition: opacity 0.3s ease-in-out 0s;
+}
+
+input:-ms-input-placeholder {
+  opacity: 1;
+  font-size: 1rem;
+  text-overflow: ellipsis;
+  -webkit-transition: opacity 0.3s ease-in-out 0s;
+  transition: opacity 0.3s ease-in-out 0s;
+}
+
+input:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+
+input:focus::-moz-placeholder {
+  opacity: 0;
+}
+
+input:focus:-moz-placeholder {
+  opacity: 0;
+}
+
+input:focus:-ms-input-placeholder {
+  opacity: 0;
+}
+
+.button {
+  font-size: 1rem;
+  font-family: inherit;
+  display: inline-block;
+  border: 0.0625em solid currentColor;
+  background: none;
+  cursor: pointer;
+}
+
+.nav__container {
+  overflow: hidden;
+  padding: 1em;
+  text-align: center;
+  /*margin-bottom:1.25em;*/
+  border-bottom: 0.0625em solid #d8d8d8;
+}
+
+@media (min-width: 40em) {
+  .nav__container {
+    position: fixed;
+    top: 0;
+    z-index: 50;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+  }
+}
+
+@media (min-width: 40em) {
+  .nav__list {
+    float: left;
+  }
+}
+
+.nav__item {
+  display: inline;
+}
+
+@media (min-width: 40em) {
+  .nav__item {
+    display: inline-block;
+  }
+}
+
+.nav__item a {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: bold;
+  padding: 0.8571428571em;
+  color: inherit;
+  white-space: nowrap;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid #eee;
+}
+
+@media (min-width: 40em) {
+  .nav__item a {
+    display: inline;
+    border-bottom: 0;
+  }
+}
+
+.nav__item a:hover {
+  text-decoration: underline;
+}
+
+.nav__form {
+  margin-top: 0.75em;
+}
+
+@media (min-width: 40em) {
+  .nav__form {
+    float: right;
+    margin-top: 0;
+  }
+}
+
+.nav__form select {
+  font-size: 0.8125rem;
+}
+
+/* ########
+   objects
+   ########*/
+.Icon_sm {
+  width: 1.875em;
+  height: 1.875em;
+}
+
+.Icon_md {
+  width: 2.625em;
+  height: 2.625em;
+}
+
+.Icon_lg {
+  width: 3.75em;
+  height: 3.75em;
+}
+
+.Icon_white{
+    fill:#fff;
+}
+
+.Icon_grey{
+    fill:#555;
+}
+
+.sprite {
+  display: none;
+}
+
+.o-Icon {
+  fill: currentColor;
+  color: #555;
+}
+
+.o-Icon__wrap {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.o-Icon__wrap div {
+  /*
+  random div used to contain individual icon containers
+  **/
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.o-Icon__wrap .o-Icon {
+  display: block;
+  width: 100%;
+}
+
+@media (min-width: 30em) {
+  .o-Icon__wrap .o-Icon__container {
+    width: 33.3%;
+  }
+}
+
+.o-Icon__container {
+  display: inherit;
+  -webkit-flex-grow: 1;
+  -ms-flex-grow: 1;
+  flex-grow: 1;
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  border: 0.0625em solid #eee;
+  padding: 0.5em;
+  margin-bottom: 1em;
+}
+
+@media (min-width: 40em) {
+  .o-Icon__container {
+    -webkit-flex-basis: 25%;
+    -ms-flex-basis: 25%;
+    flex-basis: 25%;
+  }
+}
+
+.o-Icon__container span {
+  -webkit-align-self: center;
+  -ms-align-self: center;
+  align-self: center;
+  padding: 0.5em;
+}
+
+.o-Icon__container a {
+  display: inline-block;
+}
+
+@media (min-width: 50em) {
+  .o-Grid__container {
+    /**
+       *establish a new block formatting context to contain floated columns *(https://www.w3.org/TR/css3-box/#block-level0)
+       * .u-cf may also be declared on same element with .o-Grid__container
+      */
+    overflow: hidden;
+  }
+  .o-Grid_1, .o-Grid_2, .o-Grid_3, .o-Grid_4, .o-Grid_5, .o-Grid_6, .o-Grid_7, .o-Grid_8, .o-Grid_9, .o-Grid_10, .o-Grid_11, .o-Grid_12 {
+    float: left;
+    margin: 0;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+}
+
+@media (min-width: 50em) {
+  .o-Grid_1 {
+    width: 8.3333333333%;
+  }
+}
+
+@media (min-width: 50em) {
+  .o-Grid_2 {
+    width: 16.6666666667%;
+  }
+}
+
+@media (min-width: 50em) {
+  .o-Grid_3 {
+    width: 25%;
+  }
+}
+
+@media (min-width: 50em) {
+  .o-Grid_4 {
+    width: 33.3333333333%;
+  }
+}
+
+@media (min-width: 50em) {
+  .o-Grid_5 {
+    width: 41.6666666667%;
+  }
+}
+
+@media (min-width: 50em) {
+  .o-Grid_6 {
+    width: 50%;
+  }
+}
+
+@media (min-width: 50em) {
+  .o-Grid_7 {
+    width: 58.3333333333%;
+  }
+}
+
+@media (min-width: 50em) {
+  .o-Grid_8 {
+    width: 66.6666666667%;
+  }
+}
+
+@media (min-width: 50em) {
+  .o-Grid_9 {
+    width: 75%;
+  }
+}
+
+@media (min-width: 50em) {
+  .o-Grid_10 {
+    width: 83.3333333333%;
+  }
+}
+
+@media (min-width: 50em) {
+  .o-Grid_11 {
+    width: 91.6666666667%;
+  }
+}
+
+@media (min-width: 50em) {
+  .o-Grid_12 {
+    width: 100%;
+  }
+}
+
+/*
+   use to structure/box-off grid areas...never apply skin styles to .o-Grid or .o-Grid_${i}...alternate structures should be applied through modifiers & created in objects.Grid or the utils.scss file of that component
+  */
+.o-Grid__container {
+  /**
+     *establish a new block formatting context to contain any nested grids *(https://www.w3.org/TR/css3-box/#block-level0)
+    */
+  overflow: hidden;
+  padding: 1em;
+}
+
+.o-Grid__content {
+  padding: 1em;
+}
+
+/*
+*test for nested grid use cases
+**/
+.o-Grid__content_nested .o-Grid_6:nth-of-type(1) {
+  background-color: #ffab7c;
+}
+
+.o-Grid__content_nested .o-Grid_6:nth-of-type(2) {
+  background-color: #84919f;
+}
+
+.viewContainer .o-Media__container {
+  margin-bottom: 3.125em;
+}
+
+.o-Media__footer.u-flyOut {
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  -webkit-transform: translateY(4.0625em);
+  -ms-transform: translateY(4.0625em);
+  transform: translateY(4.0625em);
+  bottom: 0;
+  z-index: 30;
+}
+
+.o-Media__container:hover .u-flyOut {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.o-Media {
+  /**
+   *establish a new block formatting context to contain floated media elements *(https://www.w3.org/TR/css3-box/#block-level0)
+  */
+  overflow: hidden;
+}
+
+.o-Media__container {
+  /*
+  *establish new stacking context to contain footer (LN:70)
+  *https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
+  **/
+  position: relative;
+  z-index: 20;
+  overflow: hidden;
+  width: 85%;
+  height:100%;
+  margin-left: auto;
+  margin-right: auto;
+  display:-webkit-flex;
+      display:-ms-flex;
+          display:flex;
+  -webkit-justify-content:center;
+      -ms-justify-content:center;
+          justify-content:center;
+  -webkit-align-items:center;
+      -ms-align-items:center;
+          align-items:center;
+}
+
+@media (min-width: 43.75em) {
+  .o-Media__container {
+    max-width: 70%;
+  }
+}
+
+.o-Media__title {
+  font-weight: normal;
+}
+
+.o-Media__item {
+  padding: 1.25em;
+}
+
+@media (min-width: 30em) {
+  .o-Media__item {
+    width: calc(50% - 1.25em);
+    margin-right: 1.25em;
+    float: left;
+  }
+}
+
+.o-Media__item img {
+  display: block;
+  min-width: 100%;
+  width: 100%;
+}
+
+.o-Media__item svg {
+  width: 100%;
+  height: 100%;
+}
+
+.o-Media__content {
+  padding: 1.25em;
+}
+
+@media (min-width: 30em) {
+  .o-Media__content {
+    width: calc(50% - 1.25em);
+    float: left;
+  }
+}
+
+.o-Media__footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  text-transform: capitalize;
+}
+
+.o-Media__footer .content {
+  background: rgba(128, 128, 128, 0.5);
+  color: #fff;
+  padding: 1.25em;
+  text-transform: uppercase;
+}
+
+/*
+Interaction states for hidden content
+**/
+.o-Card__footer.u-flyOut {
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  -webkit-transform: translateY(3.125em);
+  -ms-transform: translateY(3.125em);
+  transform: translateY(3.125em);
+  /*
+  *establish a higher stacking order to overlap adjacent elements
+  *https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
+  **/
+  position: relative;
+  bottom: 0;
+  z-index: 30;
+}
+
+.o-Card__container:hover .u-flyOut {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.o-Card {
+  overflow: hidden;
+}
+
+.o-Card__container {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.1875em;
+  /*
+  *establish new stacking context to contain footer flyOut (refer to Card.utils)
+  *https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
+  **/
+  position: relative;
+  z-index: 20;
+}
+
+@media (min-width: 30em) {
+  .o-Card__container {
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 75em) {
+  .o-Card__container {
+    max-width: 30%;
+  }
+}
+
+.viewContainer .o-Card__container {
+  margin-bottom: 3.125em;
+}
+
+.o-Card__item img {
+  display: block;
+  min-width: 100%;
+}
+
+.o-Card__item svg {
+  width: 100%;
+  height: 100%;
+}
+
+.o-Card__item .o-Media__container {
+  min-width: 100%;
+  margin-bottom: 0;
+}
+
+.o-Card__item .o-Media__item,
+.o-Card__item .o-Media__content {
+  width: 100%;
+  float: none;
+  margin-right: 0;
+}
+
+@media (min-width: 50em) {
+  .o-Card__item .o-Media__item,
+  .o-Card__item .o-Media__content {
+    width: calc(50% - 1.25em);
+    margin-right: 1.25em;
+    float: left;
+  }
+}
+
+.o-Card__content {
+  padding: 1.25em;
+}
+
+.o-Card__footer .content {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  -ms-justify-content: space-around;
+  justify-content: space-around;
+  background: #222;
+  padding: 0.25em 0.75em;
+}
+
+.o-Card__footer .o-Icon {
+  fill: #fff;
+}
+
+.o-Hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.o-Hero:before {
+  content: "";
+  display: block;
+  padding-top: 56.25%;
+}
+
+.o-Hero:hover .o-Hero__title a {
+  color: #222;
+  background: #fff;
+  box-shadow: 10px 0px 0px #fff, -10px 0px 0px #fff;
+}
+
+.o-Hero__title {
+  position: absolute;
+  top: 1.7857142857em;
+  left: 0;
+  z-index: 5;
+  opacity: 0.85;
+  font-size: 1.75rem;
+  padding-left: 0.8928571429em;
+  text-transform: capitalize;
+}
+
+@media (min-width: 50em) {
+  .o-Hero__title {
+    font-size: 3.125rem;
+    top: 1em;
+    padding-left: 0.5em;
+  }
+}
+
+@media (min-width: 80em) {
+  .o-Hero__title {
+    font-size: 4.375rem;
+    top: 0.7142857143em;
+    padding-left: 0.3571428571em;
+  }
+}
+
+.o-Hero__title a {
+  background: #222;
+  color: #fff;
+  box-shadow: 10px 0px 0px #222, -10px 0px 0px #222;
+  text-decoration: none;
+}
+
+.o-Hero__placeholder {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  background: rgba(34, 34, 34, 0.2) center/30% no-repeat url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iNDkuOTM4cHgiIGhlaWdodD0iMzQuMTdweCIgdmlld0JveD0iMC4xMTYgNi42MDUgNDkuOTM4IDM0LjE3IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAuMTE2IDYuNjA1IDQ5LjkzOCAzNC4xNyINCgkgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8cGF0aCBmaWxsPSIjQkJCQkJCIiBkPSJNNTAuMDI5LDM5LjNWNy45MTljMC0wLjcyMy0wLjU4Ni0xLjMxNC0xLjMxMS0xLjMxNEgxLjQzMmMtMC43MjQsMC0xLjMxNiwwLjU5MS0xLjMxNiwxLjMxNHYzMS41MTcNCgljMCwxLjYyOSwyLjE5LDEuMzE1LDEuMzE2LDEuMzE1aDQ3LjI4OWgwLjAxMkM1MC43MjUsNDAuNzUxLDQ5LjgwOSwzNy43MjcsNTAuMDI5LDM5LjMgTTQuMDksMzguMTJsMTQuNDE3LTE4Ljg0OWwxMi4wODYsMTUuODAyDQoJYzAuMDA1LDAuMDA4LDAuMDA1LDAuMDA4LDAuMDA1LDAuMDE1bDIuMzI0LDMuMDMySDQuMDl6IE0zNi4yMywzOC4xMmwtMi45MzUtMy44NDFsNC45MjUtNi40NjlsNy44NCwxMC4zMUgzNi4yM3ogTTQ3LjQwNCwzNS41NDENCglsLTguMTM5LTEwLjY5MmMtMC41MzEtMC42OTEtMS41NjItMC42OTEtMi4wOTEsMGwtNS41MzYsNy4yNjlMMTkuNTUsMTYuMzE0Yy0wLjUyNC0wLjY5MS0xLjU2Mi0wLjY5MS0yLjA4OCwwTDIuNzQ2LDM1LjU1MlY5LjIzMQ0KCWg0NC42NThWMzUuNTQxTDQ3LjQwNCwzNS41NDF6IE0zMi4zMDEsMTMuMTcxYy0yLjUzMywwLTQuNjAyLDIuMDYyLTQuNjAyLDQuNTk1YzAsMi41MzQsMi4wNjYsNC41OTYsNC42MDIsNC41OTYNCgljMi41MzEsMCw0LjU5Ni0yLjA2Miw0LjU5Ni00LjU5NkMzNi44OTYsMTUuMjMzLDM0LjgzMiwxMy4xNzEsMzIuMzAxLDEzLjE3MSBNMzIuMzAxLDE5LjczOGMtMS4wODIsMC0xLjk3NC0wLjg4OC0xLjk3NC0xLjk3Mg0KCWMwLTEuMDgzLDAuODkyLTEuOTcxLDEuOTc0LTEuOTcxczEuOTcxLDAuODg4LDEuOTcxLDEuOTcxQzM0LjI3MSwxOC44NTEsMzMuMzgzLDE5LjczOCwzMi4zMDEsMTkuNzM4Ii8+DQo8L3N2Zz4NCg==");
+}
+
+.o-Hero img {
+  display: block;
+  width: 100%;
+}
+
+.o-Hero__footer__title {
+  font-size: 1.5rem;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+@media (min-width: 50em) {
+  .o-Hero__footer__title {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 80em) {
+  .o-Hero__footer__title {
+    font-size: 2.875rem;
+  }
+}
+
+.o-Hero__footer .content {
+  padding: 0.5em 1em;
+  background: #222;
+}
+
+/*  ##########
+    components
+    ##########*/
+/*Cardlist.config*/
+/*
+Interaction states for hidden elements in larger viewports
+**/
+.c-Cardlist__item.is-active {
+  z-index: 30;
+}
+
+.c-Cardlist__item.is-active .c-Cardlist__desc {
+  display: block;
+}
+
+.c-Cardlist__item.is-active .c-Cardlist__options {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+}
+
+@media (min-width: 40em) {
+  .c-Cardlist {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+  }
+}
+
+.c-Cardlist__container {
+  max-width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (max-width: 56.25em) {
+  .c-Cardlist__container {
+    padding-right: 2.5em;
+    padding-left: 2.5em;
+  }
+}
+
+.c-Cardlist__overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+@media (max-width: 40em) {
+  .c-Cardlist__item {
+    box-shadow: 0 0 0.625em rgba(0, 0, 0, 0.2);
+    margin-bottom: 0.9375em;
+  }
+}
+
+@media (min-width: 40em) {
+  .c-Cardlist__item {
+    position: relative;
+    margin-left: -1.875em;
+  }
+}
+
+@media (min-width: 50em) {
+  .c-Cardlist__item {
+    margin-left: -2.8125em;
+  }
+}
+
+.c-Cardlist__item .content {
+  /*
+  *establish new stacking context to contain overlay (LN:25)
+  *https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
+  **/
+  position: relative;
+  z-index: 20;
+  overflow: hidden;
+  box-shadow: 0 0 0.625em 0.25em rgba(0, 0, 0, 0.1);
+}
+
+.c-Cardlist__item img {
+  display: block;
+  width: 100%;
+}
+
+.c-Cardlist__options {
+  /*
+  new block formatting context to avoid reflow when display property is changed  (LN:98)
+  (https://www.w3.org/TR/css3-box/#block-level0)
+  **/
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  -ms-justify-content: space-around;
+  justify-content: space-around;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  background: rgba(76, 43, 43, 0.4);
+}
+
+@media (min-width: 40em) {
+  .c-Cardlist__options {
+    display: none;
+    -webkit-justify-content: space-between;
+    -ms-justify-content: space-between;
+    justify-content: space-between;
+  }
+}
+
+.c-Cardlist__options .o-Icon {
+  fill: #fff;
+}
+
+.c-Cardlist__desc {
+  padding: 0.5em;
+  white-space: nowrap;
+}
+
+@media (min-width: 40em) {
+  .c-Cardlist__desc {
+    /*
+    *new block formatting context to avoid reflow when display property is changed (LN:125)
+    (https://www.w3.org/TR/css3-box/#block-level0)
+    **/
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    display: none;
+    padding-left: 0;
+  }
+}
+
+html.Nav-a_is-active {
+  overflow: hidden;
+}
+
+.c-Nav-a_sm__container.is-open {
+  opacity: 1;
+  visibility: visible;
+  height: 100vh;
+}
+
+.c-Nav-a {
+  position: relative;
+  max-width: 75em;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25em;
+  padding-right: 1.25em;
+  color: inherit;
+}
+
+.c-Nav-a .logo {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.c-Nav-a .logo_text {
+  display: inline;
+  vertical-align: middle;
+}
+
+.c-Nav-a .o-Icon {
+  vertical-align: middle;
+}
+
+.c-Nav-a .menuIcon {
+  position: absolute;
+  display: block;
+  margin-top: 1.25em;
+}
+
+.c-Nav-a .menuIcon__container {
+  position: absolute;
+  right: 0;
+  width: 2.8125em;
+  height: 2.8125em;
+  padding-left: 0.5em;
+  cursor: pointer;
+  border: 2px solid red;
+}
+
+@media (min-width: 40.0625em) {
+  .c-Nav-a .menuIcon__container {
+    display: none;
+  }
+}
+
+.c-Nav-a .menuIcon a {
+  position: relative;
+  display: block;
+  height: 0.2em;
+  width: 1.5em;
+  background: currentColor;
+}
+
+.c-Nav-a .menuIcon a:before,
+.c-Nav-a .menuIcon a:after {
+  position: absolute;
+  content: "";
+  display: block;
+  height: 0.2em;
+  width: 1.5em;
+  background: currentColor;
+}
+
+.c-Nav-a .menuIcon a:before {
+  top: 0.625em;
+}
+
+.c-Nav-a .menuIcon a:after {
+  top: -0.625em;
+}
+
+.c-Nav-a__list {
+  display: inline;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  text-align: center;
+}
+
+@media (min-width: 40em) {
+  .c-Nav-a__list {
+    text-align: initial;
+    border-left: 0.0625em solid currentColor;
+  }
+}
+
+@media (max-width: 40em) {
+  .c-Nav-a__list {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+}
+
+.c-Nav-a__item {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  text-transform: capitalize;
+}
+
+@media (min-width: 40em) {
+  .c-Nav-a__item {
+    display: inline-block;
+    padding-left: 1.25em;
+  }
+}
+
+.c-Nav-a__item a {
+  /*font-size:1.125rem;*/
+  text-decoration: none;
+  letter-spacing: 0.0625em;
+  color: inherit;
+}
+
+.c-Nav-a_sm {
+  position: relative;
+  z-index: 50;
+  height: 100vh;
+  text-align: center;
+}
+
+.c-Nav-a_sm {
+  /*padding-top:10vw;*/
+}
+
+.c-Nav-a_sm__container {
+  -webkit-transition: opacity 0.25s ease-in-out 0s;
+  transition: opacity 0.25s ease-in-out 0s;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /*
+  *establish new stacking context to contain exitIcon (LN:157) & c-Nav-a_sm (LN:124)
+  *https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
+  **/
+  z-index: 40;
+  background: rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  margin-bottom: -1.25em;
+}
+
+.c-Nav-a_sm .exitIcon {
+  position: absolute;
+  right: 1.25em;
+  z-index: 60;
+  display: block;
+  height: 2em;
+  width: 2em;
+  margin-top: 1.25em;
+  cursor: pointer;
+}
+
+.c-Nav-a_sm .exitIcon:before,
+.c-Nav-a_sm .exitIcon:after {
+  position: absolute;
+  top: -0.5em;
+  content: "";
+  padding: 1.5625em;
+  /*background:blue;*/
+}
+
+.c-Nav-a_sm .exitIcon:before {
+  left: 0;
+}
+
+.c-Nav-a_sm .exitIcon:after {
+  right: 0;
+}
+
+.c-Nav-a_sm .exitIcon a {
+  position: relative;
+  font-size: 1.5rem;
+  display: block;
+  color: #fff;
+}
+
+.c-Nav-a_sm .exitIcon a:before,
+.c-Nav-a_sm .exitIcon a:after {
+  position: absolute;
+  content: "";
+  display: block;
+  height: 0.208333333333em;
+  height: 0.2083333333em;
+  width: 1.5em;
+  background: currentColor;
+}
+
+.c-Nav-a_sm .exitIcon a:before {
+  -webkit-transform: rotate(-0.12turn);
+  -ms-transform: rotate(-0.12turn);
+  transform: rotate(-0.12turn);
+}
+
+.c-Nav-a_sm .exitIcon a:after {
+  -webkit-transform: rotate(0.12turn);
+  -ms-transform: rotate(0.12turn);
+  transform: rotate(0.12turn);
+}
+
+.c-Nav-a_sm__list {
+  padding-top: 2.5em;
+}
+
+.c-Nav-a_sm__list a {
+  font-size: 1.5rem;
+  display: block;
+  padding-top: 0.6666666667em;
+  padding-bottom: 0.6666666667em;
+  text-decoration: none;
+  color: #fff;
+  text-transform: capitalize;
+  letter-spacing: 0.0416666667em;
+}
+
+.c-Nav-a_sm__list a:hover {
+  text-decoration: underline;
+}
+
+.c-Nav-a_sm__list a:last-child {
+  margin-top: 2em;
+}
+
+/*
+Interaction states for hidden content sections
+**/
+.c-Nav-b__item:hover .u-flyOut {
+  opacity: 1;
+  visibility: visible;
+}
+
+.c-Nav-b_sm .u-flyOut.is-visible {
+  -webkit-transform: translateX(0);
+  -ms-transform: translateX(0);
+  transform: translateX(0);
+  /*visibility:visible;*/
+}
+
+.u-flyOut__item.u-arrowRight.is-active:after {
+  -webkit-transform: rotate(0.5turn);
+  -ms-transform: rotate(0.5turn);
+  transform: rotate(0.5turn);
+}
+
+.u-flyOut__item.is-active .u-flyOut_nested {
+  max-height: 1000vh;
+  /*visibility:visible;*/
+}
+
+.js-Nav-b_optim {
+  will-change: transform;
+}
+
+.c-Nav-b {
+  display: none;
+  float: left;
+  /*border:2px solid red;*/
+}
+
+@media (min-width: 65.875em) {
+  .c-Nav-b {
+    display: block;
+  }
+}
+
+.c-Nav-b_sub {
+  display: none;
+}
+
+@media (min-width: 65.875em) {
+  .c-Nav-b_sub {
+    display: block;
+    float: right;
+    padding-top: 0.625em;
+    /*border:2px solid red;*/
+  }
+}
+
+.c-Nav-b .u-flyOut, .c-Nav-b_sub .u-flyOut {
+  -webkit-transition: opacity 0.2s ease-in-out 0s;
+  transition: opacity 0.2s ease-in-out 0s;
+  top: -0.625em;
+  font-size: 0.8125rem;
+  border-radius: 0.3125em;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.c-Nav-b__container {
+  padding: 0.625em;
+  background: #fff;
+  /*border:2px solid;*/
+  border-bottom: 0.0625em solid rgba(0, 0, 0, 0.1);
+}
+
+.c-Nav-b__item {
+  /*
+   establish container for u-arrowDown ( LN:56 )
+  **/
+  position: relative;
+  display: inline-block;
+  padding-left: 0.8125em;
+  padding-right: 0.8125em;
+}
+
+.c-Nav-b__item.u-arrowDown:after {
+  -webkit-transform: rotate(0.5turn);
+  -ms-transform: rotate(0.5turn);
+  transform: rotate(0.5turn);
+  position: absolute;
+  bottom: 0.55em;
+  right: 0;
+  left: auto;
+  color: rgba(0, 0, 0, 0.7);
+  content: "";
+  border-left: solid transparent;
+  border-right: solid transparent;
+  border-bottom: solid currentColor;
+  border-width: 0.3125em;
+}
+
+.c-Nav-b__item a {
+  display: block;
+  letter-spacing: 0.0625em;
+  text-decoration: none;
+  text-transform: capitalize;
+  color: inherit;
+}
+
+.c-Nav-b__item .o-Icon {
+  vertical-align: middle;
+  margin-right: 0.625em;
+}
+
+.c-Nav-b__item .logo {
+  font-size: 1.125rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.c-Nav-b_sm {
+  /*
+   alternate navigation for smaller viewports
+  **/
+}
+
+@media (min-width: 65.875em) {
+  .c-Nav-b_sm {
+    display: none;
+  }
+}
+
+.c-Nav-b_sm .menuIcon__container {
+  /*
+  *declare height on menuIcon__container to position menuIcon within it & use as the event target
+  **/
+  height: 2.875em;
+  cursor: pointer;
+}
+
+.c-Nav-b_sm .menuIcon {
+  position: relative;
+  top: 1.25em;
+  left: 0.625em;
+}
+
+.c-Nav-b_sm .menuIcon a {
+  position: relative;
+  display: block;
+  height: 0.2em;
+  width: 1.5em;
+  background: currentColor;
+}
+
+.c-Nav-b_sm .menuIcon a:before,
+.c-Nav-b_sm .menuIcon a:after {
+  position: absolute;
+  content: "";
+  display: block;
+  height: 0.2em;
+  width: 1.5em;
+  background: currentColor;
+}
+
+.c-Nav-b_sm .menuIcon a:before {
+  top: 0.625em;
+}
+
+.c-Nav-b_sm .menuIcon a:after {
+  top: -0.625em;
+}
+
+.c-Nav-b_sm .exitIcon a {
+  position: absolute;
+  left: 0.625em;
+}
+
+.c-Nav-b_sm .exitIcon a:before,
+.c-Nav-b_sm .exitIcon a:after {
+  position: absolute;
+  top: 0.625em;
+  content: "";
+  display: block;
+  height: 0.2em;
+  width: 1.5em;
+  background: currentColor;
+}
+
+.c-Nav-b_sm .exitIcon a:before {
+  -webkit-transform: rotate(-0.12turn);
+  -ms-transform: rotate(-0.12turn);
+  transform: rotate(-0.12turn);
+}
+
+.c-Nav-b_sm .exitIcon a:after {
+  -webkit-transform: rotate(0.12turn);
+  -ms-transform: rotate(0.12turn);
+  transform: rotate(0.12turn);
+}
+
+.c-Nav-b_sm .exitIcon__text {
+  padding-left: 1.75em;
+}
+
+.c-Nav-b_sm__list {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+}
+
+.c-Nav-b_sm__list a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.c-Nav-b_sm__list .o-Icon {
+  vertical-align: middle;
+}
+
+.c-Nav-b_sm__list .logo {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.c-Nav-b_sm__item {
+  border: 2px solid;
+}
+
+.c-Nav-b_sm__item:first-of-type {
+  -webkit-flex-basis: 3.125em;
+  -ms-flex-basis: 3.125em;
+  flex-basis: 3.125em;
+}
+
+.c-Nav-b_sm__item:last-of-type {
+  -webkit-flex-grow: 1;
+  -ms-flex-grow: 1;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.c-Nav-b_sm__item:last-of-type a {
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.c-Nav-b_sm .u-flyOut {
+  -webkit-transition: -webkit-transform 0.75s ease-in-out;
+  transition: transform 0.75s ease-in-out;
+  -webkit-transform: translateX(-18.75em);
+  -ms-transform: translateX(-18.75em);
+  transform: translateX(-18.75em);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  height: 100vh;
+  overflow: scroll;
+}
+
+.c-Nav-b_sm .u-flyOut__item {
+  /*
+  declare relative on list item to contain u-arrowRight (LN:288)
+  **/
+  position: relative;
+  letter-spacing: 0.0625em;
+  text-transform: capitalize;
+}
+
+.c-Nav-b_sm .u-flyOut__item:not(:last-child) {
+  border-bottom: 0.0625em solid rgba(255, 255, 255, 0.2);
+}
+
+.c-Nav-b_sm .u-flyOut__link {
+  position: relative;
+  font-size: 1.125rem;
+  text-decoration: none;
+  color: #fff;
+}
+
+.c-Nav-b_sm .u-flyOut__item:not(:first-of-type) a {
+  left: 30px;
+}
+
+.c-Nav-b_sm .u-flyOut__item.u-arrowRight > a {
+  left: 45px;
+}
+
+.u-flyOut_nested {
+  /*
+  prevent nested flyOut from overlapping list item
+  **/
+  position: relative;
+  top: 1.125em;
+  -webkit-transition: max-height 0.3s ease-in-out 0s;
+  transition: max-height 0.3s ease-in-out 0s;
+  max-height: 0vh;
+  /*visibility:hidden;*/
+  overflow: hidden;
+  background: #555;
+}
+
+.u-flyOut__item.u-arrowRight {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.u-flyOut__item.u-arrowRight:after {
+  -webkit-transform: rotate(0.25turn);
+  -ms-transform: rotate(0.25turn);
+  transform: rotate(0.25turn);
+  position: absolute;
+  top: 1.55em;
+  right: 1.25em;
+  color: #fff;
+  content: "";
+  border-left: 0.4375em solid transparent;
+  border-right: 0.4375em solid transparent;
+  border-bottom: 0.4375em solid currentColor;
+}
+
+.u-flyOut__item .o-Icon__container {
+  /*
+  reset border and margin set on o-Icon__container
+  refer to objects.Icon - LN:48
+  **/
+  border: 0;
+  margin: 0;
+  padding: 0.2em 0 0 0;
+}
+
+.u-flyOut__item .o-Icon__container a {
+  /*
+  reset position set on list item anchor elements
+  **/
+  position: static;
+  margin-right: 0.75em;
+}
+
+/*
+Interaction states for menu button
+**/
+.c-Nav-c__container .menu:hover {
+  background: #222;
+}
+
+.c-Nav-c__container .menu:hover:before {
+  color: #fff;
+}
+
+/*
+Interaction states for nav form
+**/
+.c-Nav-c__container .form:hover .button,
+.c-Nav-c__header.is-active .button {
+  background: #fff;
+  border-color: transparent;
+}
+
+.c-Nav-c__container .form:hover .o-Icon,
+.c-Nav-c__header.is-active .o-Icon {
+  color: #222;
+}
+
+/*
+Interaction states for nav content in smaller viewports
+**/
+.c-Nav-c__header.is-open .menu {
+  background: #222;
+}
+
+.c-Nav-c__header.is-open .menu:before {
+  content: "Close";
+  color: #fff;
+}
+
+.c-Nav-c__header.is-open .c-Nav-c__list {
+  height: 100vh;
+  opacity: 1;
+  visibility: visible;
+  background: #fff;
+}
+
+.c-Nav-c__header.is-open .c-Nav-c__item {
+  opacity: 1;
+}
+
+html.Nav-c_is-open {
+  overflow: hidden;
+}
+
+.c-Nav-c {
+  width: 100%;
+  overflow: hidden;
+  color: inherit;
+  border-top: 0.125em solid currentColor;
+}
+
+@media (min-width: 40em) {
+  .c-Nav-c {
+    height: auto;
+    padding-top: 0.625em;
+  }
+}
+
+.c-Nav-c__container {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  padding: 0.5em;
+}
+
+.c-Nav-c__container .logo {
+  font-size: 1rem;
+  -webkit-flex-grow: 4;
+  -ms-flex-grow: 4;
+  flex-grow: 4;
+}
+
+.c-Nav-c__container .logo a {
+  display: block;
+  max-width: 10em;
+  height: 1.5em;
+  padding-right: 0.625em;
+  color: inherit;
+  text-decoration: none;
+}
+
+.c-Nav-c__container .logo .o-Icon {
+  vertical-align: middle;
+  margin-top: -0.35em;
+}
+
+.c-Nav-c__container .logo span {
+  display: none;
+}
+
+@media (min-width: 29.375em) {
+  .c-Nav-c__container .logo span {
+    display: inline-block;
+    text-transform: capitalize;
+    letter-spacing: 0.05em;
+  }
+}
+
+.c-Nav-c__container .menu {
+  -webkit-transition: background 0.1s ease-in-out 0s;
+  transition: background 0.1s ease-in-out 0s;
+  display: inline-block;
+  height: 1.5em;
+  border: 0.0625em solid currentColor;
+  padding-left: 0.3125em;
+  padding-right: 0.3125em;
+  cursor: pointer;
+}
+
+@media (min-width: 40em) {
+  .c-Nav-c__container .menu {
+    display: none;
+  }
+}
+
+.c-Nav-c__container .menu:before {
+  content: "Menu";
+  color: inherit;
+}
+
+@media (max-width: 20em) {
+  .c-Nav-c__container .menu:before {
+    font-size: 0.75rem;
+  }
+}
+
+.c-Nav-c__container .form {
+  height: 1.5em;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  overflow: hidden;
+  margin-right: 0.625em;
+  border: 1px solid currentColor;
+}
+
+@media (min-width: 40em) {
+  .c-Nav-c__container .form {
+    margin-right: 0;
+  }
+}
+
+.c-Nav-c__container .form .o-Icon {
+  position: relative;
+  bottom: 0.3125em;
+  left: 0.0625em;
+  width: 1em;
+  color: #fff;
+}
+
+.c-Nav-c__container .button {
+  position: relative;
+  z-index: 5;
+  -webkit-transition: background 0.1s ease-in-out 0s;
+  transition: background 0.1s ease-in-out 0s;
+  width: 1.5em;
+  height: 1.5em;
+  color: #222;
+  background: currentColor;
+  border-left: 0;
+}
+
+.c-Nav-c__container .button:focus {
+  outline: 0;
+}
+
+.c-Nav-c__container .form__container {
+  height: 1.5em;
+}
+
+.c-Nav-c__container .input {
+  height: 1.375em;
+  line-height: 1.5;
+  padding-left: 0.3125em;
+  padding-right: 0.3125em;
+}
+
+.c-Nav-c__container .input:focus {
+  outline: 0;
+}
+
+.c-Nav-c__list {
+  overflow: hidden;
+}
+
+@media (max-width: 40em) {
+  .c-Nav-c__list {
+    -webkit-transition: opacity 0.8s ease-in-out 0s;
+    transition: opacity 0.8s ease-in-out 0s;
+    height: 0vh;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.c-Nav-c__item {
+  -webkit-transition: opacity 0.75s ease-in-out 0s;
+  transition: opacity 0.75s ease-in-out 0s;
+  padding-top: 1.25em;
+  opacity: 0;
+}
+
+@media (min-width: 40em) {
+  .c-Nav-c__item {
+    opacity: 1;
+    display: inline;
+    margin-right: 1.875em;
+  }
+}
+
+.c-Nav-c__item:nth-of-type(1) {
+  -webkit-transition-delay: 0.05s;
+  -ms-transition-delay: 0.05s;
+  transition-delay: 0.05s;
+}
+
+.c-Nav-c__item:nth-of-type(2) {
+  -webkit-transition-delay: 0.1s;
+  -ms-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+
+.c-Nav-c__item:nth-of-type(3) {
+  -webkit-transition-delay: 0.15s;
+  -ms-transition-delay: 0.15s;
+  transition-delay: 0.15s;
+}
+
+.c-Nav-c__item:nth-of-type(4) {
+  -webkit-transition-delay: 0.2s;
+  -ms-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+
+.c-Nav-c__item:nth-of-type(5) {
+  -webkit-transition-delay: 0.25s;
+  -ms-transition-delay: 0.25s;
+  transition-delay: 0.25s;
+}
+
+.c-Nav-c__item:nth-of-type(6) {
+  -webkit-transition-delay: 0.3s;
+  -ms-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+
+.c-Nav-c__item a {
+  color: inherit;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+/*
+Interaction states for carousel item
+**/
+.c-Carousel__item.is-active {
+  opacity: 1;
+}
+
+/*
+nested media object within .c-Carousel
+**/
+.c-Carousel .o-Media__container {
+  margin: 0;
+  max-width: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0.625em;
+}
+
+.c-Carousel {
+  position: relative;
+  height: 20em;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 40em) {
+  .c-Carousel {
+    height: 25em;
+  }
+}
+
+.c-Carousel__container {
+  position: relative;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.c-Carousel__item {
+  -webkit-transition: opacity 0.75s ease-in-out 0s;
+  transition: opacity 0.75s ease-in-out 0s;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+}
+
+.c-Carousel__buttons {
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  -ms-justify-content: space-around;
+  justify-content: space-around;
+  border: solid #ccc;
+  border-width: 0 0.125em 0.125em 0.125em;
+}
+
+.c-Carousel__buttons .button {
+  display: inline-block;
+  border: 0;
+  padding-left: 1em;
+  padding-right: 1em;
+  cursor: pointer;
+}
+
+.c-Carousel__buttons .button:focus {
+  outline: 0;
+}
+
+/*
+Interaction states for subcribe form checkbox
+**/
+.input_c-Subscribe + label:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 1.4em;
+  height: 1.4em;
+  background-color: #fff;
+  border: 0.0625em solid #e5e5e5;
+  box-shadow: inset 0 0.0625em 0.1875em rgba(0, 0, 0, 0.2);
+}
+
+.input_c-Subscribe:checked + label:before {
+  color: inherit;
+  background-color: currentColor;
+  border-color: currentColor;
+  box-shadow: none;
+}
+
+.input_c-Subscribe:checked + label:after {
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  content: "";
+  width: 1em;
+  height: 1em;
+  background: center/contain no-repeat url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iNDBweCIgaGVpZ2h0PSI0MHB4IiB2aWV3Qm94PSIwIDAgNDAgNDAiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDQwIDQwIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0xNC4yMzMsMzMuNjcxaC0wLjAwM2MtMC40MjUsMC0wLjgzMy0wLjE3NC0xLjEzNi0wLjQ3M0wwLjQ5NSwyMC41MWMtMC42MjUtMC42MzEtMC42Mi0xLjY0NSwwLjAwNy0yLjI2OQ0KCWMwLjYzNC0wLjYyNywxLjY0Ni0wLjYyMiwyLjI2OCwwLjAwNmwxMS40NjMsMTEuNTQ5TDM3LjIzMSw2Ljc5OWMwLjYyOC0wLjYyNywxLjY0Mi0wLjYyNywyLjI3MSwwYzAuNjI2LDAuNjI1LDAuNjI2LDEuNjQzLDAsMi4yNjkNCglMMTUuMzY5LDMzLjIwMkMxNS4wNjUsMzMuNTAyLDE0LjY1OSwzMy42NzEsMTQuMjMzLDMzLjY3MXoiLz4NCjwvc3ZnPg0K");
+}
+
+@media (min-width: 50em) {
+  .c-Subscribe {
+    text-align: center;
+  }
+}
+
+.c-Subscribe .form {
+  padding-left: 1.875em;
+  padding-right: 1.875em;
+}
+
+.c-Subscribe .form__title {
+  margin-bottom: 1.25em;
+}
+
+.c-Subscribe .form__label {
+  display: block;
+  margin-bottom: 0.9375em;
+}
+
+@media (min-width: 50em) {
+  .c-Subscribe .form__label {
+    width: 25em;
+    display: inline-block;
+    margin: 0 0.9375em;
+  }
+}
+
+.c-Subscribe .form__label_checkbox {
+  position: relative;
+  display: inline-block;
+  padding-left: 1.875em;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.c-Subscribe .form__input {
+  font-size: 1.125rem;
+  width: 100%;
+  height: 3em;
+  padding: 1em;
+}
+
+.c-Subscribe .form__input:not([type="submit"]):valid:focus {
+  box-shadow: 0 0.0625em 0.25em 0 rgba(0, 222, 35, 0.7);
+  outline: 0;
+}
+
+.c-Subscribe .form__button {
+  font-size: 1.125rem;
+  width: 100%;
+  height: 3em;
+  vertical-align: top;
+  background-color: black;
+  color: white;
+  padding: 1em;
+  border: 0;
+}
+
+@media (min-width: 50em) {
+  .c-Subscribe .form__button {
+    width: auto;
+  }
+}
+
+.c-Subscribe .form__checkbox,
+.c-Subscribe .form__message {
+  padding-top: 1.25em;
+}
+
+/*
+Interaction states for hidden content sections
+**/
+.c-Accordion__section.is-active .c-Accordion__title:before {
+  -webkit-transform: rotate(1.35turn);
+  -ms-transform: rotate(1.35turn);
+  transform: rotate(1.35turn);
+}
+
+.c-Accordion__section.is-active .c-Accordion__title:after {
+  -webkit-transform: rotate(0.65turn);
+  -ms-transform: rotate(0.65turn);
+  transform: rotate(0.65turn);
+}
+
+.c-Accordion__section.is-active .c-Accordion__content {
+  max-height: 100vh;
+  opacity: 1;
+  padding-top: 1.25em;
+}
+
+.c-Accordion {
+  padding: 1.875em 1.25em;
+}
+
+.c-Accordion__container {
+  max-width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.c-Accordion__title {
+  position: relative;
+  display: block;
+  font-size: 1rem;
+  font-weight: normal;
+  border-bottom: 0.0625em solid #eee;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+@media (min-width: 50em) {
+  .c-Accordion__title {
+    font-size: 1.25rem;
+  }
+}
+
+.c-Accordion__title:before,
+.c-Accordion__title:after {
+  -webkit-transition: transform 0s ease-in-out 0s;
+  transition: transform 0s ease-in-out 0s;
+  position: absolute;
+  top: 5px;
+  /*right:-1.875em;*/
+  content: "";
+  display: block;
+  height: 2px;
+  color: inherit;
+  border-left: 12px solid currentColor;
+  cursor: pointer;
+}
+
+@media (min-width: 50em) {
+  .c-Accordion__title:before,
+  .c-Accordion__title:after {
+    border-left-width: 16px;
+  }
+}
+
+.c-Accordion__title:before {
+  -webkit-transform: rotate(0.15turn);
+  -ms-transform: rotate(0.15turn);
+  transform: rotate(0.15turn);
+  right: 6px;
+}
+
+@media (min-width: 50em) {
+  .c-Accordion__title:before {
+    right: 8px;
+  }
+}
+
+.c-Accordion__title:after {
+  -webkit-transform: rotate(0.85turn);
+  -ms-transform: rotate(0.85turn);
+  transform: rotate(0.85turn);
+  right: 0;
+}
+
+.c-Accordion__section:not(:first-child) {
+  padding-top: 1.875em;
+}
+
+.c-Accordion__content {
+  max-height: 0vh;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.c-Accordion__content .o-Media__container {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+@media (min-width: 43.75em) {
+  .c-Accordion__content .o-Media__container {
+    max-width: none;
+  }
+}
+
+/*  ######
+    utils
+    ######*/
+/* ##########
+   A11Y utils
+   ##########*/
+/**
+ *apply on elements to hide text on screen but allow visible to assistive technologies
+*/
+.u-a11yText {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* #######################
+   Block Formating Context
+   #######################*/
+/**
+ *establish a new block formatting context *(https://www.w3.org/TR/css3-box/#block-level0)
+*/
+.u-nbfc {
+  overflow: hidden;
+}
+
+/**
+*establish a new block formatting context to contain elements that may lead to reflow/repaint due to properties such as : animations, transitions, transforms etc..
+*/
+.u-nbfc_A {
+  position: absolute;
+}
+
+/* #########
+   Clearfix
+   #########*/
+/*
+use to contain floated elements and establish a new block formatting context
+*http://fuseinteractive.ca/blog/understanding-humble-clearfix#.Vrax2rkrKoY
+**/
+.u-cf {
+  *zoom: 1;
+}
+
+.u-cf:before,
+.u-cf:after {
+  content: " ";
+  display: table;
+}
+
+.u-cf:after {
+  clear: both;
+}
+
+/* #############
+   Display Utils
+   #############*/
+/**
+ *element is not present to the user & assistive technologies
+ */
+.u-isRemoved {
+  display: none !important;
+  visibility: hidden;
+}
+
+/**
+*element is present to the user & assistive technologies
+*/
+.u-isRevealed {
+  display: block !important;
+  visibility: visible;
+}
+
+.u-isHidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.u-isVisible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ############
+   Layout Utils
+   ############*/
+.u-floatLeft {
+  float: left;
+}
+
+.u-floatRight {
+  float: right;
+}
+
+.u-center {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* #################
+   Interaction Utils
+   #################*/
+/*
+*Use to decouple common user interaction styles from components
+**/
+/*
+*Use to display more info related to certain objects E.g
+
+.useCase__item{
+  position:relative;
+}
+.useCase__item .u-flyOut{
+  top:0;
+  left:0;
+  opacity:0;
+  visibility:hidden;
+}
+.useCase__item:hover .u-flyOut{
+  opacity:1;
+  visibility:visible;
+}
+**/
+.u-flyOut {
+  position: absolute;
+  z-index: 30;
+  min-width: 16em;
+  background: #222;
+  color: #fff;
+}
+
+.u-flyOut__item {
+  padding: 1em 0.9375em;
+  white-space: nowrap;
+}
+
+.u-flyOut_split {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+}
+
+/* ###########
+   Skin Utils
+   ###########*/
+/*
+*use to decouple skin from structure on objects or components
+**/
+a:hover .o-Icon_dribbble_ {
+  fill: #F26798;
+}
+
+a:hover .o-Icon_dropbox_ {
+  fill: #0089D1;
+}
+
+a:hover .o-Icon_facebook_ {
+  fill: #3B5998;
+}
+
+a:hover .o-Icon_google_ {
+  fill: #DC4A38;
+}
+
+a:hover .o-Icon_instagram_ {
+  fill: #325C86;
+}
+
+a:hover .o-Icon_pinterest_ {
+  fill: #CB2027;
+}
+
+a:hover .o-Icon_twitter_ {
+  fill: #2AA9E0;
+}
+
+a:hover .o-Icon_vimeo_ {
+  fill: #1cb7ea;
+}
+
+a:hover .o-Icon_youtube_ {
+  fill: #D72523;
+}
+
+.u-border {
+  border: 0.0625em solid;
+  border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+}
+
+.u-hardShadow {
+  box-shadow: 0 0.0625em 0.125em rgba(0, 0, 0, 0.5);
+}
+
+.u-softShadow {
+  box-shadow: 0 0.0625em 0.25em 0 rgba(0, 0, 0, 0.2);
+}
+
+/* ###########
+   Text Utils
+   ###########*/
+.u-alignRight {
+  text-align: right;
+}
+
+.u-alignCenter {
+  text-align: center;
+}
+
+/**
+* prevent text from wrapping or breaking onto a new line
+*/
+.u-textTruncate {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* ###########
+   Media Utils
+   ###########*/
+/**
+* establish a ratio aware video container
+*/
+.u-videoContainer {
+  padding-top: 56.25%;
+  position: relative;
+}
+
+.u-videoContainer video,
+.u-videoContainer iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ###########
+    TITLE UTILS
+   ###########*/
+header h1{
+
+    font-size:1.5rem;
+}
+
+/* ##############
+    SPACING UTILS
+   #############*/
+
+.clear-bottom{
+    margin-bottom:3.75rem;
+}

@@ -1,0 +1,148 @@
+.c-Cardlist__item.is-active {
+  z-index: 30;
+}
+
+.c-Cardlist__item.is-active .c-Cardlist__desc {
+  display: block;
+}
+
+.c-Cardlist__item.is-active .c-Cardlist__options {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+}
+
+@media (min-width: 40em) {
+  .Cardlist {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+  }
+}
+
+.container {
+  max-width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (max-width: 56.25em) {
+  .container {
+    padding-right: 2.5em;
+    padding-left: 2.5em;
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+@media (max-width: 40em) {
+  .item {
+    box-shadow: 0 0 0.625em rgba(0, 0, 0, 0.2);
+    margin-bottom: 0.9375em;
+  }
+}
+
+@media (min-width: 40em) {
+  .item {
+    position: relative;
+    margin-left: -1.875em;
+  }
+}
+
+@media (min-width: 50em) {
+  .item {
+    margin-left: -2.8125em;
+  }
+}
+
+.content {
+  /*
+  *establish new stacking context to contain overlay (LN:25)
+  *https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
+  **/
+  position: relative;
+  z-index: 20;
+  overflow: hidden;
+  box-shadow: 0 0 0.625em 0.25em rgba(0, 0, 0, 0.1);
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+.options {
+  /*
+  new block formatting context to avoid reflow when display property is changed  (LN:98)
+  (https://www.w3.org/TR/css3-box/#block-level0)
+  **/
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  -ms-justify-content: space-around;
+  justify-content: space-around;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  background: rgba(76, 43, 43, 0.4);
+}
+
+@media (min-width: 40em) {
+  .options {
+    display: none;
+    -webkit-justify-content: space-between;
+    -ms-justify-content: space-between;
+    justify-content: space-between;
+  }
+}
+
+.o-Icon {
+  fill: #fff;
+}
+
+.desc {
+  padding: 0.5em;
+  white-space: nowrap;
+}
+
+@media (min-width: 40em) {
+  .desc {
+    /*
+    *new block formatting context to avoid reflow when display property is changed (LN:125)
+    (https://www.w3.org/TR/css3-box/#block-level0)
+    **/
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    display: none;
+    padding-left: 0;
+  }
+}
+
+.itemActive{
+    position:relative;
+    z-index:30;
+}
+
+.descActive{
+    display:block;
+}
+
+.optionsActive{
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+}

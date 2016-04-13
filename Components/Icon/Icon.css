@@ -1,0 +1,87 @@
+.Icon_sm {
+  width: 1.875em;
+  height: 1.875em;
+}
+
+.Icon_md {
+  width: 2.625em;
+  height: 2.625em;
+}
+
+.Icon_lg {
+  width: 3.75em;
+  height: 3.75em;
+}
+
+.sprite {
+  display: none;
+}
+
+/*.o-Icon {
+  fill: currentColor;
+  color: #555;
+}*/
+
+.o-Icon__wrap {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.o-Icon__wrap div {
+  /*
+  random div used to contain individual icon containers
+  **/
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.o-Icon__wrap .o-Icon {
+  display: block;
+  width: 100%;
+}
+
+@media (min-width: 30em) {
+  .o-Icon__wrap .o-Icon__container {
+    width: 33.3%;
+  }
+}
+
+.o-Icon__container {
+  display: inherit;
+  -webkit-flex-grow: 1;
+  -ms-flex-grow: 1;
+  flex-grow: 1;
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  border: 0.0625em solid #eee;
+  padding: 0.5em;
+  margin-bottom: 1em;
+}
+
+@media (min-width: 40em) {
+  .o-Icon__container {
+    -webkit-flex-basis: 25%;
+    -ms-flex-basis: 25%;
+    flex-basis: 25%;
+  }
+}
+
+.o-Icon__container span {
+  -webkit-align-self: center;
+  -ms-align-self: center;
+  align-self: center;
+  padding: 0.5em;
+}
+
+.o-Icon__container a {
+  display: inline-block;
+}
