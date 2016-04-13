@@ -33,16 +33,17 @@ class CommentBox extends React.Component {
     }
     updateCharacters() {
         const photoAdded = this.state.photoAdded;
-        const text = this.state.text;
+        const textLength = this.state.text.length;
         if(photoAdded){
-            return 140 - 23 - text.length;
+            return 140 - 23 - textLength;
         }else{
-            return 140 - text.length;
+            return 140 - textLength;
         }
     }
     render() {
         const text = this.state.text;
         const photoAdded = this.state.photoAdded;
+        const updateChars = this.updateCharacters();
         return <div>
                 <header>
                     <h1 className="u-alignCenter">Comment Box</h1>
@@ -51,7 +52,7 @@ class CommentBox extends React.Component {
                     <textarea styleName="textarea" onChange={this.handleChange}></textarea>
                     <br/>
                     <span>{ this.updateCharacters() }</span>
-                <button styleName="button" disabled={this.updateCharacters() === 140 || this.updateCharacters() < 0}>Comment</button>
+                    <button styleName="button" disabled={updateChars === 140 || updateChars < 0}>Comment</button>
                     <button styleName="button" onClick={this.handleTogglePhoto}>
                         {photoAdded ? "✓ Photo Added" : "Add Photo" }
                     </button>
