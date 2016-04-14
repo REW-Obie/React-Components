@@ -35,7 +35,7 @@ class Cardlist extends React.Component {
         render() {
             return <div styleName="container" className="clear-bottom">
                 <header>
-                    <h1 className="u-alignCenter" id="Cardlist">Card List</h1>
+                    <h1 className="u-alignCenter">Card List</h1>
                 </header>
                 <ul styleName="Cardlist" onMouseOut={this.handleClearItem}>
                     {this.renderChildren()}

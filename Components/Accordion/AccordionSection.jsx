@@ -28,8 +28,8 @@ class AccordionSection extends React.Component {
         const activeContent = isOpen ? styles['contentActive'] : '';
         const activeTitle = isOpen ? styles['titleActive'] : '';
         // console.log('state:', this.state);
-        return <section styleName='section' onClick={this.handleToggleOpen}>
-            <h3 styleName='title' className={activeTitle}>
+        return <section styleName='section'>
+            <h3 styleName='title' className={activeTitle} onClick={this.handleToggleOpen}>
                 {title}
             </h3>
             <div styleName='content' className={activeContent}

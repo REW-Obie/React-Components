@@ -24,11 +24,13 @@ class MainNavForm extends React.Component {
                 <select name="js-nav nav_select" className='js-nav'
                   onChange= {this.handleSelectNav} ref='select'>
                   <option value>Jump to...</option>
-                  <option value="#Accordion">&nbsp;&nbsp;&nbsp;&nbsp;Accordion</option>
-                  <option value="#Card">&nbsp;&nbsp;&nbsp;&nbsp;Card</option>
-              <option value="#Cardlist">&nbsp;&nbsp;&nbsp;&nbsp;Card List</option>
-                  <option value="#Carousel">&nbsp;&nbsp;&nbsp;&nbsp;Carousel</option>
-                  <option value="#CommentBox">&nbsp;&nbsp;&nbsp;&nbsp;Comment Box</option>
+              <option value="#accordion">&nbsp;&nbsp;&nbsp;&nbsp;Accordion</option>
+              <option value="#card1">&nbsp;&nbsp;&nbsp;&nbsp;Card 1</option>
+              <option value="#card2">&nbsp;&nbsp;&nbsp;&nbsp;Card 2</option>
+              <option value="#card3">&nbsp;&nbsp;&nbsp;&nbsp;Card 3</option>
+              <option value="#cardlist">&nbsp;&nbsp;&nbsp;&nbsp;Card List</option>
+              <option value="#carousel">&nbsp;&nbsp;&nbsp;&nbsp;Carousel</option>
+                  <option value="#commentbox">&nbsp;&nbsp;&nbsp;&nbsp;Comment Box</option>
                   <option value="#Form">&nbsp;&nbsp;&nbsp;&nbsp;Form</option>
                   <option value="#Grid">&nbsp;&nbsp;&nbsp;&nbsp;Grid</option>
                   <option value="#Hero">&nbsp;&nbsp;&nbsp;&nbsp;Hero</option>

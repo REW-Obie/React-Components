@@ -31,7 +31,7 @@ class Accordion extends React.Component {
             const {children} = this.props;
             return <section className="clear-bottom">
               <header>
-              <h1 className='u-alignCenter' id="Accordion">Accordion</h1>
+              <h1 className='u-alignCenter'>Accordion</h1>
             </header>
             <div className='u-border' styleName='container'>
               <div styleName='c-Accordion'>

@@ -46,7 +46,7 @@ class Carousel extends React.Component {
     render() {
         return <div className="clear-bottom">
               <header>
-                  <h1 className='u-alignCenter' id="Carousel">Carousel</h1>
+                  <h1 className='u-alignCenter'>Carousel</h1>
               </header>
               <div styleName="container">
                 <div styleName="Carousel">

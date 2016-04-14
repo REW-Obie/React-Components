@@ -18,7 +18,7 @@ class Card extends React.Component {
         const {title, item, children} = this.props;
         return <div>
             <header>
-                <h1 className="u-alignCenter" id="Card">Card</h1>
+                <h1 className="u-alignCenter">Card</h1>
             </header>
             <div styleName="container" className="u-softShadow u-border clear-bottom">
                 <div styleName="Card">
