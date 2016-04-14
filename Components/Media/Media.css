@@ -14,14 +14,14 @@
   transform: translateY(0);
 }
 
-.o-Media {
+.Media {
   /**
    *establish a new block formatting context to contain floated media elements *(https://www.w3.org/TR/css3-box/#block-level0)
   */
   overflow: hidden;
 }
 
-.o-Media__container {
+.container {
   /*
   *establish new stacking context to contain footer (LN:70)
   *https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context
@@ -35,50 +35,50 @@
 }
 
 @media (min-width: 43.75em) {
-  .o-Media__container {
+  .container {
     max-width: 70%;
   }
 }
 
-.o-Media__title {
+.title {
   font-weight: normal;
 }
 
-.o-Media__item {
+.item {
   padding: 1.25em;
 }
 
 @media (min-width: 30em) {
-  .o-Media__item {
+  .item {
     width: calc(50% - 1.25em);
     margin-right: 1.25em;
     float: left;
   }
 }
 
-.o-Media__item img {
+.item img {
   display: block;
   min-width: 100%;
   width: 100%;
 }
 
-.o-Media__item svg {
+.item svg {
   width: 100%;
   height: 100%;
 }
 
-.o-Media__content {
+.content {
   padding: 1.25em;
 }
 
 @media (min-width: 30em) {
-  .o-Media__content {
+  .content {
     width: calc(50% - 1.25em);
     float: left;
   }
 }
 
-.o-Media__footer {
+.footer {
   position: absolute;
   left: 0;
   right: 0;
@@ -87,9 +87,12 @@
   text-transform: capitalize;
 }
 
-.o-Media__footer .content {
+.footer .content {
   background: rgba(128, 128, 128, 0.5);
   color: #fff;
   padding: 1.25em;
   text-transform: uppercase;
 }
+
+.title{}
+.desc{}

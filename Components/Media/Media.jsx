@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react';
+import CSSModules from 'react-css-modules';
+import styles from './Media.css';
 
 class Media extends React.Component {
     static propTypes = {
@@ -9,14 +11,14 @@ class Media extends React.Component {
     };
     render() {
         const { children, title} = this.props;
-        return <div className='o-Media__container'>
-            <div className='o-Media'>
-              <div className='o-Media__item'>
+        return <div styleName='container'>
+            <div styleName='Media'>
+              <div styleName='item'>
                 {children}
               </div>
-              <div className="o-Media__content">
-                <h4 className="o-Media__title">{title}</h4>
-                <div className="o-Media__desc">
+              <div styleName="content">
+                <h4 styleName="title">{title}</h4>
+                <div styleName="desc">
                   The content area on the right can contain any other objects. In this case, it contains text, but we could put lists, grids, or even other media objects inside.<br/>
                   - <a href="http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/">Nicole Sullivan</a>
                 </div>
@@ -26,4 +28,4 @@ class Media extends React.Component {
     }
 }
 
-export default Media;
+export default CSSModules(Media, styles);
