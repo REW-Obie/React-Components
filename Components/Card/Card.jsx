@@ -7,25 +7,23 @@ import Icon from '../Icon/Icon.jsx';
 
 class Card extends React.Component {
     static propTypes = {
+      children: PropTypes.node,
       title: PropTypes.string.isRequired,
-      href: PropTypes.string.isRequired ,
-      image: PropTypes.string.isRequired
+      item: PropTypes.node
     };
     static defaultProps = {
         title: '',
-        image: 'black.jpg',
-        href: '/Assets/Card/'
     };
     render() {
-        const {title, href, image} = this.props;
+        const {title, item, children} = this.props;
         return <div>
             <header>
-                <h1 className="u-alignCenter">Card</h1>
+                <h1 className="u-alignCenter" id="Card">Card</h1>
             </header>
             <div styleName="container" className="u-softShadow u-border clear-bottom">
                 <div styleName="Card">
                     <div styleName="item">
-                        <img src={href + image} alt=""></img>
+                        {children}
                     </div>
                     <div styleName="content">
                         <h4 styleName="title">{title}</h4>
