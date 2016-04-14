@@ -26,8 +26,9 @@ class MainNavForm extends React.Component {
                   <option value>Jump to...</option>
                   <option value="#Accordion">&nbsp;&nbsp;&nbsp;&nbsp;Accordion</option>
                   <option value="#Card">&nbsp;&nbsp;&nbsp;&nbsp;Card</option>
-                  <option value="#CardList">&nbsp;&nbsp;&nbsp;&nbsp;Card List</option>
+              <option value="#Cardlist">&nbsp;&nbsp;&nbsp;&nbsp;Card List</option>
                   <option value="#Carousel">&nbsp;&nbsp;&nbsp;&nbsp;Carousel</option>
+                  <option value="#CommentBox">&nbsp;&nbsp;&nbsp;&nbsp;Comment Box</option>
                   <option value="#Form">&nbsp;&nbsp;&nbsp;&nbsp;Form</option>
                   <option value="#Grid">&nbsp;&nbsp;&nbsp;&nbsp;Grid</option>
                   <option value="#Hero">&nbsp;&nbsp;&nbsp;&nbsp;Hero</option>
