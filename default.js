@@ -15,6 +15,7 @@ import CardlistItem from './Components/Cardlist/CardlistItem.jsx';
 import Carousel from './Components/Carousel/Carousel.jsx';
 import CarouselItem from './Components/Carousel/CarouselItem.jsx';
 import Card from './Components/Card/Card.jsx';
+import CardItem from './Components/Card/CardItem.jsx';
 import CommentBox from './Components/CommentBox/CommentBox.jsx';
 
 
@@ -25,7 +26,9 @@ const accordion = document.getElementById('accordion');
 const icon = document.getElementById('icon');
 const cardlist = document.getElementById('cardlist');
 const carousel = document.getElementById('carousel');
-const card = document.getElementById('card');
+const card_1 = document.getElementById('card1');
+const card_2 = document.getElementById('card2');
+const card_3 = document.getElementById('card3');
 const commentBox = document.getElementById('commentbox');
 
 
@@ -114,7 +117,19 @@ ReactDOM.render(<Carousel>
 
 
 ReactDOM.render(
-  <Card title="Card Title"/>, card);
+  <Card title="Card Title">
+    <CardItem/>
+</Card>, card_1);
+
+ReactDOM.render(
+  <Card title="Card Title">
+  <Media title="Media Title">
+      <Icon name="media1" title="media icon" desc="a media icon"/>
+  </Media>
+  </Card>, card_2);
+
+ReactDOM.render(
+<Card title="Card Title" />, card_3);
 
 ReactDOM.render(
 <CommentBox/>, commentBox);
