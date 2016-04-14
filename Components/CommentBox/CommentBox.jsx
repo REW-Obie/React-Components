@@ -24,7 +24,7 @@ class CommentBox extends React.Component {
     }
     handleChange(e) {
         const text = this.state.text;
-        // console.log(this.state);
+        // console.log(this.state.text);
         this.setState({ text: e.target.value });
     }
     handleTogglePhoto(e) {
@@ -35,24 +35,27 @@ class CommentBox extends React.Component {
         const photoAdded = this.state.photoAdded;
         const textLength = this.state.text.length;
         if(photoAdded){
-            return 140 - 23 - textLength;
+            return 350 - 23 - textLength;
         }else{
-            return 140 - textLength;
+            return 350 - textLength;
         }
     }
     render() {
+        const {styles} = this.props;
         const text = this.state.text;
         const photoAdded = this.state.photoAdded;
         const updateChars = this.updateCharacters();
+        const lowCount = text.length > 350 ? styles['low-count'] : "test";
+
         return <div>
                 <header>
-                    <h1 className="u-alignCenter">Comment Box</h1>
+                    <h1 className="u-alignCenter" id="CommentBox">Comment Box</h1>
                 </header>
                 <div styleName="container" className="u-cf u-border clear-bottom">
                     <textarea styleName="textarea" onChange={this.handleChange}></textarea>
                     <br/>
-                    <span>{ this.updateCharacters() }</span>
-                    <button styleName="button" disabled={updateChars === 140 || updateChars < 0}>Comment</button>
+                <span className={lowCount}>{ this.updateCharacters() }</span>
+            <button styleName="button" disabled={updateChars === 350 || updateChars < 0}>Comment</button>
                     <button styleName="button" onClick={this.handleTogglePhoto}>
                         {photoAdded ? "✓ Photo Added" : "Add Photo" }
                     </button>
