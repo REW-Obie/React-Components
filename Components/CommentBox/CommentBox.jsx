@@ -7,11 +7,15 @@ import styles from './CommentBox.css';
 class CommentBox extends React.Component {
     static propTypes = {
         initialText: PropTypes.string,
-        initialPhotoAdded: PropTypes.bool
+        initialPhotoAdded: PropTypes.bool,
+        wordCount: PropTypes.number,
+        photoCount: PropTypes.number
     };
     static defaultProps = {
         initialText: "",
-        initialPhotoAdded: false
+        initialPhotoAdded: false,
+        wordCount: 350,
+        photoCount: 23
     };
     constructor(props) {
         super(props);
@@ -34,28 +38,30 @@ class CommentBox extends React.Component {
     updateCharacters() {
         const photoAdded = this.state.photoAdded;
         const textLength = this.state.text.length;
+        const wordCount  = this.props.wordCount;
+        const photoCount  = this.props.photoCount;
         if(photoAdded){
-            return 350 - 23 - textLength;
+            return wordCount - photoCount - textLength;
         }else{
-            return 350 - textLength;
+            return wordCount - textLength;
         }
     }
     render() {
-        const {styles} = this.props;
+        const {styles, wordCount} = this.props;
         const text = this.state.text;
         const photoAdded = this.state.photoAdded;
         const updateChars = this.updateCharacters();
-        const lowCount = text.length > 350 ? styles['low-count'] : "test";
+        const lowCount = text.length > wordCount ? styles['low-count'] : "test";
 
         return <div>
                 <header>
-                    <h1 className="u-alignCenter" id="CommentBox">Comment Box</h1>
+                    <h1 className="u-alignCenter">Comment Box</h1>
                 </header>
                 <div styleName="container" className="u-cf u-border clear-bottom">
                     <textarea styleName="textarea" onChange={this.handleChange}></textarea>
                     <br/>
                 <span className={lowCount}>{ this.updateCharacters() }</span>
-            <button styleName="button" disabled={updateChars === 350 || updateChars < 0}>Comment</button>
+            <button styleName="button" disabled={updateChars === wordCount || updateChars < 0}>Comment</button>
                     <button styleName="button" onClick={this.handleTogglePhoto}>
                         {photoAdded ? "✓ Photo Added" : "Add Photo" }
                     </button>
