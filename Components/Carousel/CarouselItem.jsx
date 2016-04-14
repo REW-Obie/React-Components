@@ -10,7 +10,7 @@ class CarouselItem extends React.Component {
         render() {
             const {children, isActive, styles} = this.props;
             const activeItem = isActive ? styles['itemActive'] : '';
-            return<li styleName="item" className={activeItem}>
+            return<li styleName="item" className={activeItem} aria-hidden={!isActive}>
                 {children}
             </li>;
         }

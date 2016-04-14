@@ -40,6 +40,9 @@ nested media object within .c-Carousel
   height: 100%;
   width: 100%;
   opacity: 0;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
   -webkit-justify-content:center;
       -ms-justify-content:center;
           justify-content:center;
