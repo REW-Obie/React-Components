@@ -6,6 +6,7 @@ import styles from './Accordion.css';
 class AccordionSection extends React.Component {
     static propTypes = {
         title: PropTypes.node.isRequired,
+        children: PropTypes.node.isRequired,
         initialIsOpen: PropTypes.bool
     };
     static defaultProps = {
@@ -26,9 +27,9 @@ class AccordionSection extends React.Component {
         const { title, children, styles } = this.props;
         const activeContent = isOpen ? styles['contentActive'] : '';
         const activeTitle = isOpen ? styles['titleActive'] : '';
-        console.log('state:', this.state);
-        return <section styleName='section'>
-            <h3 styleName='title' className={activeTitle} onClick={this.handleToggleOpen}>
+        // console.log('state:', this.state);
+        return <section styleName='section' onClick={this.handleToggleOpen}>
+            <h3 styleName='title' className={activeTitle}>
                 {title}
             </h3>
             <div styleName='content' className={activeContent}
