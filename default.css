@@ -519,7 +519,8 @@ input:focus:-ms-input-placeholder {
 /*ensure that nested Media spans full width*/
 [class*="Card"] [class*="Media__container"],
 [class*="Carousel"] [class*="Media__container"],
-[class*="Accordion"] [class*="Media__container"]{
+[class*="Accordion"] [class*="Media__container"],
+[class*="Tab"] [class*="Media__container"]{
     max-width:none;
     min-width:100%;
 }
