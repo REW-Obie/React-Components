@@ -6,10 +6,10 @@ import styles from './CommentBox.css';
 
 class CommentBox extends React.Component {
     static propTypes = {
-        initialText: PropTypes.string,
-        initialPhotoAdded: PropTypes.bool,
-        wordCount: PropTypes.number,
-        photoCount: PropTypes.number
+        initialText: PropTypes.string.isRequired,
+        initialPhotoAdded: PropTypes.bool.isRequired,
+        wordCount: PropTypes.number.isRequired,
+        photoCount: PropTypes.number.isRequired
     };
     static defaultProps = {
         initialText: "",
@@ -39,7 +39,7 @@ class CommentBox extends React.Component {
         const photoAdded = this.state.photoAdded;
         const textLength = this.state.text.length;
         const wordCount  = this.props.wordCount;
-        const photoCount  = this.props.photoCount;
+        const photoCount = this.props.photoCount;
         if(photoAdded){
             return wordCount - photoCount - textLength;
         }else{
@@ -60,8 +60,8 @@ class CommentBox extends React.Component {
                 <div styleName="container" className="u-cf u-border clear-bottom">
                     <textarea styleName="textarea" onChange={this.handleChange}></textarea>
                     <br/>
-                <span className={lowCount}>{ this.updateCharacters() }</span>
-            <button styleName="button" disabled={updateChars === wordCount || updateChars < 0}>Comment</button>
+                    <span className={lowCount}>{ this.updateCharacters() }</span>
+                    <button styleName="button" disabled={updateChars === wordCount || updateChars < 0}>Comment</button>
                     <button styleName="button" onClick={this.handleTogglePhoto}>
                         {photoAdded ? "✓ Photo Added" : "Add Photo" }
                     </button>
