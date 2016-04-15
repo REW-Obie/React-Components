@@ -19,7 +19,7 @@ import CardItem from './Components/Card/CardItem.jsx';
 import CommentBox from './Components/CommentBox/CommentBox.jsx';
 import TabSet from './Components/TabSet/TabSet.jsx';
 import TabSection from './Components/TabSet/TabSection.jsx';
-
+import SubscribeForm from './Components/SubscribeForm/SubscribeForm.jsx';
 
 //Define constants for each Component
 //const variableName = document.getElementById('dom-node');
@@ -33,7 +33,7 @@ const card_2 = document.getElementById('card2');
 const card_3 = document.getElementById('card3');
 const commentBox = document.getElementById('commentbox');
 const tabset = document.getElementById('tabset');
-
+const subscribeform = document.getElementById('subscribeform');
 
 
 
@@ -72,7 +72,7 @@ ReactDOM.render(<Accordion>
   </AccordionSection>
 </Accordion>, accordion);
 
-ReactDOM.render(<Cardlist activeItem={2}>
+ReactDOM.render(<Cardlist>
    <CardlistItem title="Card Title" subtitle="Card Subtitle/Author" details="extra details..." image="black.jpg">
        <Icon name="fave3" title="favorite icon" desc="a favorite/save icon" size="sm" color="white"/>
         <Icon name="share" title="share icon" desc="a share icon" color="white" size="sm"/>
@@ -140,7 +140,7 @@ ReactDOM.render(
 
 ReactDOM.render(
 <TabSet>
-    <TabSection title="a">        
+    <TabSection title="a">
         <Media title="Media Title 1">
             <Icon name="media1" title="media icon" desc="a media icon"/>
         </Media>
@@ -162,8 +162,8 @@ ReactDOM.render(
     </TabSection>
 </TabSet>, tabset);
 
-
-
+ReactDOM.render(
+<SubscribeForm/>, subscribeform);
 
 
 
