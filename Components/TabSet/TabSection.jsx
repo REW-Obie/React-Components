@@ -7,7 +7,7 @@ class TabSection extends React.Component {
             title: PropTypes.node.isRequired,
             children: PropTypes.node.isRequired,
             isActive: PropTypes.bool.isRequired,
-            handleSelect: PropTypes.func
+            handleToggle: PropTypes.func
         };
         static defaultProps = {
             title: '',
@@ -16,7 +16,7 @@ class TabSection extends React.Component {
 
         render() {
             const {children, title, styles, isActive, handleToggle} = this.props;
-            const activeTab = isActive ? styles['tabActive'] : 'test';
+            const activeTab = isActive ? styles['tabActive'] : '';
             const activeSection = isActive ? styles['sectionActive'] : '';
 
             return <li styleName="item" className={activeTab} aria-hidden={!isActive} onClick={handleToggle}>
