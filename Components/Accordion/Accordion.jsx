@@ -21,10 +21,7 @@ Example of using an Accordion...
 
 class Accordion extends React.Component {
         static propTypes = {
-          accordionSection: PropTypes.element,
-          media: PropTypes.element,
-          icon: PropTypes.element,
-          content: PropTypes.element
+          accordionSection: PropTypes.element
         };
 
         render() {
