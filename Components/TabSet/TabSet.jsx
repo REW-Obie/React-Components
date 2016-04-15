@@ -27,7 +27,7 @@ class TabSet extends React.Component {
         }
 
         render() {
-            return <section className="clear-bottom">
+            return <section className="clear-bottom_tab">
                     <header>
                       <h1 className='u-alignCenter'>Tab</h1>
                     </header>
