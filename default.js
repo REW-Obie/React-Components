@@ -17,6 +17,8 @@ import CarouselItem from './Components/Carousel/CarouselItem.jsx';
 import Card from './Components/Card/Card.jsx';
 import CardItem from './Components/Card/CardItem.jsx';
 import CommentBox from './Components/CommentBox/CommentBox.jsx';
+import TabSet from './Components/TabSet/TabSet.jsx';
+import TabSection from './Components/TabSet/TabSection.jsx';
 
 
 //Define constants for each Component
@@ -30,6 +32,8 @@ const card_1 = document.getElementById('card1');
 const card_2 = document.getElementById('card2');
 const card_3 = document.getElementById('card3');
 const commentBox = document.getElementById('commentbox');
+const tabset = document.getElementById('tabset');
+
 
 
 
@@ -133,6 +137,35 @@ ReactDOM.render(
 
 ReactDOM.render(
 <CommentBox/>, commentBox);
+
+ReactDOM.render(
+<TabSet>
+    <TabSection title="a">        
+        <Media title="Media Title 1">
+            <Icon name="media1" title="media icon" desc="a media icon"/>
+        </Media>
+    </TabSection>
+    <TabSection title="b">
+        <Media title="Media Title 2">
+            <Icon name="media1" title="media icon" desc="a media icon"/>
+        </Media>
+    </TabSection>
+    <TabSection title="c">
+        <Media title="Media Title 3">
+            <Icon name="media1" title="media icon" desc="a media icon"/>
+        </Media>
+    </TabSection>
+    <TabSection title="d">
+        <Media title="Media Title 4">
+            <Icon name="media1" title="media icon" desc="a media icon"/>
+        </Media>
+    </TabSection>
+</TabSet>, tabset);
+
+
+
+
+
 
 
 // ReactDOM.render(
