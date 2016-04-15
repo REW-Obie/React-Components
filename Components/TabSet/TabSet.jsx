@@ -6,19 +6,19 @@ class TabSet extends React.Component {
 
         constructor(props) {
             super(props);
-            this.state = { activeItem: 1 };
+            this.state = { activeTab: 1 };
             this.handleToggleActive = this.handleToggleActive.bind(this)
         }
-        handleToggleActive(activeItem) {
-            this.setState({ activeItem });
+        handleToggleActive(activeTab) {
+            this.setState({ activeTab });
         }
         renderChildren() {
             const { children} = this.props;
-            const { activeItem } = this.state;
+            const { activeTab } = this.state;
             const handleToggleActive = this.handleToggleActive;
             return React.Children.map(children, (child, i) => {
                 return React.cloneElement(child, {
-                    isActive: i + 1 === activeItem,
+                    isActive: i + 1 === activeTab,
                     handleToggle() {
                         handleToggleActive(i + 1);
                     }
