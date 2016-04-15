@@ -1,7 +1,3 @@
-.test{
-  overflow:visible;
-}
-
 .c-Accordion {
   padding: 1.875em 1.25em;
 }
@@ -93,18 +89,21 @@
 
 /*Interaction States*/
 
-.contentActive{
+.contentActive {
+
   max-height:none;
   opacity:1;
 }
 
-.titleActive:before{
+.titleActive:before {
+
   -webkit-transform: rotate(1.35turn);
       -ms-transform: rotate(1.35turn);
           transform: rotate(1.35turn);
 }
 
-.titleActive:after{
+.titleActive:after {
+
   -webkit-transform: rotate(0.65turn);
       -ms-transform: rotate(0.65turn);
           transform: rotate(0.65turn);
