@@ -118,41 +118,10 @@ input:focus:-ms-input-placeholder {
   cursor: pointer;
 }
 
-/* ########
-   objects
-   ########*/
-/* Global Icon Utils */
-.Icon_sm {
-  width: 1.875em;
-  height: 1.875em;
-}
-
-.Icon_md {
-  width: 2.625em;
-  height: 2.625em;
-}
-
-.Icon_lg {
-  width: 3.75em;
-  height: 3.75em;
-}
-
-.Icon_white{
-    fill:#fff;
-}
-
-.Icon_grey{
-    fill:#555;
-}
-/* Global Icon Utils*/
-
-.sprite {
-  display: none;
-}
-
 /*  ######
     utils
     ######*/
+
 /* ##########
    A11Y utils
    ##########*/
@@ -419,7 +388,34 @@ header h1{
 [class*="Card"] [class*="Media__container"],
 [class*="Carousel"] [class*="Media__container"],
 [class*="Accordion"] [class*="Media__container"],
-[class*="Tab"] [class*="Media__container"]{
+[class*="Tab"] [class*="Media__container"] {
     max-width:none;
     min-width:100%;
+}
+
+/* ############
+    ICON UTILS
+   ###########*/
+
+.Icon_sm {
+  width: 1.875em;
+  height: 1.875em;
+}
+
+.Icon_md {
+  width: 2.625em;
+  height: 2.625em;
+}
+
+.Icon_lg {
+  width: 3.75em;
+  height: 3.75em;
+}
+
+.Icon_white {
+    fill:#fff;
+}
+
+.Icon_grey {
+    fill:#555;
 }
