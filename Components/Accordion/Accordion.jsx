@@ -21,18 +21,46 @@ Example of using an Accordion...
 
 class Accordion extends React.Component {
         static propTypes = {
-          accordionSection: PropTypes.element
+            title: PropTypes.node.isRequired,
+            children: PropTypes.node.isRequired,
+            initialIsOpen: PropTypes.bool
         };
+        static defaultProps = {
+            title: '',
+            initialIsOpen: false
+        };
+        constructor(props) {
+            super(props);
+            this.state = { isOpen: props.initialIsOpen };
+            this.handleToggleOpen = this.handleToggleOpen.bind(this);
+        }
+        handleToggleOpen(isOpen) {
+            const {children} = this.props;
+            this.setState({ isOpen });
+        }
+
+        renderChildren() {
+            const { children} = this.props;
+            const { isOpen } = this.state;
+            const handleToggleOpen = this.handleToggleOpen;
+            return React.Children.map(children, (child, i) => {
+                return React.cloneElement(child, {
+                    isOpen: i + 1 === isOpen,
+                    handleToggle(e) {
+                        handleToggleOpen(i + 1);
+                    }
+                });
+            });
+        }
 
         render() {
-            const {children} = this.props;
             return <section className="clear-bottom">
               <header>
               <h1 className='u-alignCenter'>Accordion</h1>
             </header>
             <div className='u-border' styleName='container'>
-              <div styleName='c-Accordion'>
-                {children}
+              <div styleName='Accordion'>
+                  {this.renderChildren()}
               </div>
             </div>
             </section>;
