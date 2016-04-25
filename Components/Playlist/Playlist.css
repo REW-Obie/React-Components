@@ -1,0 +1,93 @@
+.container {
+    width:80%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.Playlist {
+    width: 100%;
+}
+
+.item {
+    display:-webkit-flex;
+        display:-ms-flex;
+            display:flex;
+    -webkit-justify-content:space-between;
+        -ms-justify-content:space-between;
+            justify-content:space-between;
+    padding:1em;
+}
+
+.item:not(:last-of-type) {
+    border-bottom: 0.0625em solid #D5DDE4;
+}
+
+.itemActive{
+    background: #222;
+    color:#fff;
+}
+
+.duration {
+    color: inherit;
+}
+
+.title {
+    color:inherit;
+    letter-spacing:1px;
+}
+
+.icons{
+    display:-webkit-flex;
+        display:-ms-flex;
+            display:flex;
+}
+
+.icons button {
+    font-size:0.875rem;
+    margin-right:0.625em;
+    padding-left:0.5em;
+    padding-right:0.5em;
+    border:0;
+    background:none;
+}
+
+.icons svg {
+    fill:#fff;
+    opacity:0;
+    visibility:hidden;
+    cursor:pointer;
+}
+
+.itemActive .icons svg{
+    opacity: 1;
+    visibility: visible;
+}
+
+.buttons{
+    display:-webkit-flex;
+        display:-ms-flex;
+            display:flex;
+    -webkit-justify-content:center;
+        -ms-justify-content:center;
+            justify-content:center;
+    text-align:center;
+    background:#222;
+    opacity:0.65;
+}
+
+.button {
+    font-size: 1rem;
+    margin: 0.625em;
+    border: 0;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.button:not(:first-of-type) svg{
+    stroke: #fff;
+}
+
+.button:first-of-type svg {
+    fill: #fff;
+}
