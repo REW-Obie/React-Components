@@ -30,7 +30,7 @@ class MainNavForm extends React.Component {
                       <option value="#cardlist">&nbsp;&nbsp;&nbsp;&nbsp;Card List</option>
                       <option value="#carousel">&nbsp;&nbsp;&nbsp;&nbsp;Carousel</option>
                       <option value="#commentbox">&nbsp;&nbsp;&nbsp;&nbsp;Comment Box</option>
-                      <option value="#media">&nbsp;&nbsp;&nbsp;&nbsp;Media</option>
+                      <option value="#playlist">&nbsp;&nbsp;&nbsp;&nbsp;Playlist</option>
                       <option value="#Subscribe">&nbsp;&nbsp;&nbsp;&nbsp;Subscribe Form</option>
                       <option value="#tabset">&nbsp;&nbsp;&nbsp;&nbsp;Tab Set</option>
                 </select>
