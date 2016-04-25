@@ -20,6 +20,8 @@ import CommentBox from './Components/CommentBox/CommentBox.jsx';
 import TabSet from './Components/TabSet/TabSet.jsx';
 import TabSection from './Components/TabSet/TabSection.jsx';
 import SubscribeForm from './Components/SubscribeForm/SubscribeForm.jsx';
+import Playlist from './Components/Playlist/Playlist.jsx';
+import PlaylistItem from './Components/Playlist/PlaylistItem.jsx';
 
 //Define constants for each Component
 //const variableName = document.getElementById('dom-node');
@@ -34,7 +36,7 @@ const card_3 = document.getElementById('card3');
 const commentBox = document.getElementById('commentbox');
 const tabset = document.getElementById('tabset');
 const subscribeform = document.getElementById('subscribeform');
-
+const playlist = document.getElementById('playlist');
 
 
 //Render each Component to the DOM
@@ -165,7 +167,15 @@ ReactDOM.render(
 ReactDOM.render(
 <SubscribeForm/>, subscribeform);
 
-
+ReactDOM.render(
+<Playlist>
+    <PlaylistItem title="Song Title 1" artist="Artist 1" duration="3:50"/>
+    <PlaylistItem title="Song Title 2" artist="Artist 2" duration="5:00"/>
+    <PlaylistItem title="Song Title 3" artist="Artist 3" duration="2:55"/>
+    <PlaylistItem title="Song Title 4" artist="Artist 4" duration="7:50"/>
+    <PlaylistItem title="Song Title 5" artist="Artist 5" duration="4:50"/>
+    <PlaylistItem title="Song Title 6" artist="Artist 6" duration="3:50"/>
+</Playlist>, playlist);
 
 
 // ReactDOM.render(
