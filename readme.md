@@ -2,7 +2,7 @@
 
 - Run `npm install` to download dependencies (see /package.json)
 
-- You may have to install Webpack dev server to get going. Run `npm install webpack-dev-server -g`
+- You may have to install Webpack dev server to get going. Run `npm install webpack-dev-server --save-dev`
 
 - Run `npm start` to launch a dev server
 
