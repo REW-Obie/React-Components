@@ -40,6 +40,13 @@
     display:-webkit-flex;
         display:-ms-flex;
             display:flex;
+    opacity:0;
+    visibility:hidden;
+}
+
+.itemActive .icons {
+    opacity: 1;
+    visibility: visible;
 }
 
 .icons button {
@@ -49,18 +56,11 @@
     padding-right:0.5em;
     border:0;
     background:none;
+    cursor: pointer;
 }
 
 .icons svg {
     fill:#fff;
-    opacity:0;
-    visibility:hidden;
-    cursor:pointer;
-}
-
-.itemActive .icons svg{
-    opacity: 1;
-    visibility: visible;
 }
 
 .buttons{
